@@ -1,0 +1,24 @@
+// schema.prisma
+// Main entry point — all models combined for Prisma CLI
+
+generator client {
+  provider = "prisma-client-js"
+ 
+}
+
+datasource db {
+  provider = "postgresql"
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+

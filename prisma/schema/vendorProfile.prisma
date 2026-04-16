@@ -1,0 +1,13 @@
+model VendorProfile {
+  id                  String   @id @default(uuid())
+  userId              String   @unique
+  farmName            String
+  certificationStatus String
+  farmLocation        String
+
+  user        User       @relation(fields: [userId], references: [id])
+  produces    Produce[]
+  rentalSpaces RentalSpace[]
+  orders      Order[]
+  certs       SustainabilityCert[]
+}
