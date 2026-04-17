@@ -3,7 +3,7 @@ import { OrderControllers } from "./order.controller";
 import { checkAuth } from "../../middleware/checkAuth";
 import { UserRole } from "@prisma/client";
 
-const router = Router();
+const router:Router = Router();
 
 // Admin: Get all orders with filters and pagination
 router.get(

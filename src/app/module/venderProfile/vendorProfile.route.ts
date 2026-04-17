@@ -3,7 +3,7 @@ import { VendorProfileControllers } from "./vendorProfile.controller";
 import { checkAuth } from "../../middleware/checkAuth";
 import { UserRole } from "@prisma/client";
 
-const router = Router();
+const router: Router = Router();
 
 // Public: Get all vendor profiles (customers can browse)
 router.get("/", VendorProfileControllers.getAllVendorProfiles);
@@ -15,35 +15,35 @@ router.get("/:id", VendorProfileControllers.getVendorProfileById);
 router.get(
   "/my/profile",
   checkAuth(UserRole.VENDOR),
-  VendorProfileControllers.getMyVendorProfile
+  VendorProfileControllers.getMyVendorProfile,
 );
 
 // Vendor: Create vendor profile (only vendors can create)
 router.post(
   "/",
   checkAuth(UserRole.VENDOR),
-  VendorProfileControllers.createVendorProfile
+  VendorProfileControllers.createVendorProfile,
 );
 
 // Vendor / Admin: Update vendor profile
 router.patch(
   "/:id",
   checkAuth(UserRole.ADMIN, UserRole.VENDOR),
-  VendorProfileControllers.updateVendorProfile
+  VendorProfileControllers.updateVendorProfile,
 );
 
 // Admin: Approve a vendor
 router.patch(
   "/:id/approve",
   checkAuth(UserRole.ADMIN),
-  VendorProfileControllers.approveVendor
+  VendorProfileControllers.approveVendor,
 );
 
 // Admin: Delete vendor profile
 router.delete(
   "/:id",
   checkAuth(UserRole.ADMIN),
-  VendorProfileControllers.deleteVendorProfile
+  VendorProfileControllers.deleteVendorProfile,
 );
 
 export const VendorProfileRoutes: Router = router;

@@ -3,7 +3,7 @@ import { ProduceControllers } from "./produce.controller";
 import { checkAuth } from "../../middleware/checkAuth";
 import { UserRole } from "@prisma/client";
 
-const router = Router();
+const router: Router = Router();
 
 // Public: Browse all available produce (marketplace)
 router.get("/", ProduceControllers.getAllProduce);

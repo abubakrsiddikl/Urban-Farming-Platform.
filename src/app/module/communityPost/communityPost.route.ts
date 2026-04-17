@@ -3,7 +3,7 @@ import { CommunityPostControllers } from "./communityPost.controller";
 import { checkAuth } from "../../middleware/checkAuth";
 import { UserRole } from "@prisma/client";
 
-const router = Router();
+const router: Router = Router();
 
 // Public: Browse all community forum posts
 router.get("/", CommunityPostControllers.getAllPosts);
@@ -15,28 +15,28 @@ router.get("/:id", CommunityPostControllers.getPostById);
 router.get(
   "/my/posts",
   checkAuth(...Object.values(UserRole)),
-  CommunityPostControllers.getMyPosts
+  CommunityPostControllers.getMyPosts,
 );
 
 // All authenticated users: Create a new post
 router.post(
   "/",
   checkAuth(...Object.values(UserRole)),
-  CommunityPostControllers.createPost
+  CommunityPostControllers.createPost,
 );
 
 // Author / Admin: Update post content
 router.patch(
   "/:id",
   checkAuth(...Object.values(UserRole)),
-  CommunityPostControllers.updatePost
+  CommunityPostControllers.updatePost,
 );
 
 // Author / Admin: Delete a post
 router.delete(
   "/:id",
   checkAuth(...Object.values(UserRole)),
-  CommunityPostControllers.deletePost
+  CommunityPostControllers.deletePost,
 );
 
 export const CommunityPostRoutes: Router = router;

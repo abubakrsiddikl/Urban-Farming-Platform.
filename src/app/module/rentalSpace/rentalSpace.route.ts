@@ -3,7 +3,7 @@ import { RentalSpaceControllers } from "./rentalSpace.controller";
 import { checkAuth } from "../../middleware/checkAuth";
 import { UserRole } from "@prisma/client";
 
-const router = Router();
+const router:Router = Router();
 
 // Public: Browse all available rental spaces (location-based search via query params)
 router.get("/", RentalSpaceControllers.getAllRentalSpaces);
