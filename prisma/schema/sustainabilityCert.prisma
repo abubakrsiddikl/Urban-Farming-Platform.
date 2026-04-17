@@ -1,8 +1,10 @@
 model SustainabilityCert {
-  id                  String   @id @default(uuid())
-  vendorId            String
-  certifyingAgency    String
-  certificationDate   DateTime
+  id                String   @id @default(uuid())
+  vendorId          String
+  certifyingAgency  String
+  certificationDate DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 
   vendor VendorProfile @relation(fields: [vendorId], references: [id])
 }

@@ -3,11 +3,10 @@ import catchAsync from "../../utils/catchAsync";
 import { UserServices } from "./user.service";
 import { sendResponse } from "../../utils/sendResponse";
 import httpStatus from "http-status-codes";
-
+import pick from "../../utils/pick";
 
 // ─── Create User ─────────────────────────────────────────────
 const createUser = catchAsync(async (req: Request, res: Response) => {
-
   const result = await UserServices.createUser(req.body);
 
   sendResponse(res, {
@@ -21,7 +20,10 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
 // ─── Get All Users ────────────────────────────────────────────
 
 const getAllUsers = catchAsync(async (req: Request, res: Response) => {
-  const result = await UserServices.getAllUsers();
+  const filters = pick(req.query, ["searchTerm", "role", "status"]);
+
+  const options = pick(req.query, ["limit", "page", "sortBy", "sortOrder"]);
+  const result = await UserServices.getAllUsers(filters, options);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
