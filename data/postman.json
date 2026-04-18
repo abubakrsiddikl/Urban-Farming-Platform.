@@ -8,7 +8,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://localhost:5000/api/v1",
+      "value": "https://urbanfarmingserver.vercel.app/api/v1",
       "type": "string"
     },
     {
@@ -71,7 +71,11 @@
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/users", "host": ["{{baseUrl}}"], "path": ["users"] },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["users"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"Super Admin\",\n  \"email\": \"admin@urbanfarm.com\",\n  \"password\": \"Admin@1234\",\n  \"role\": \"ADMIN\"\n}"
@@ -83,7 +87,11 @@
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/users", "host": ["{{baseUrl}}"], "path": ["users"] },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["users"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"Green Roots Vendor\",\n  \"email\": \"vendor@urbanfarm.com\",\n  \"password\": \"Vendor@1234\",\n  \"role\": \"VENDOR\"\n}"
@@ -95,7 +103,11 @@
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/users", "host": ["{{baseUrl}}"], "path": ["users"] },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["users"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"John Customer\",\n  \"email\": \"customer@urbanfarm.com\",\n  \"password\": \"Customer@1234\",\n  \"role\": \"CUSTOMER\"\n}"
@@ -121,7 +133,11 @@
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"email\": \"admin@urbanfarm.com\",\n  \"password\": \"Admin@1234\"\n}"
@@ -147,7 +163,11 @@
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"email\": \"vendor@urbanfarm.com\",\n  \"password\": \"Vendor@1234\"\n}"
@@ -173,7 +193,11 @@
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"email\": \"customer@urbanfarm.com\",\n  \"password\": \"Customer@1234\"\n}"
@@ -189,7 +213,9 @@
           "name": "Get All Users",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
             "url": {
               "raw": "{{baseUrl}}/users?page=1&limit=10&sortBy=createdAt&sortOrder=desc",
               "host": ["{{baseUrl}}"],
@@ -210,8 +236,14 @@
           "name": "Get My Profile",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{customerToken}}" }],
-            "url": { "raw": "{{baseUrl}}/users/me", "host": ["{{baseUrl}}"], "path": ["users", "me"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{customerToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "me"]
+            }
           }
         },
         {
@@ -222,7 +254,11 @@
               { "key": "Authorization", "value": "Bearer {{adminToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/users/{{userId}}", "host": ["{{baseUrl}}"], "path": ["users", "{{userId}}"] },
+            "url": {
+              "raw": "{{baseUrl}}/users/{{userId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "{{userId}}"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"Updated Name\",\n  \"status\": \"INACTIVE\"\n}"
@@ -233,8 +269,14 @@
           "name": "Delete User",
           "request": {
             "method": "DELETE",
-            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
-            "url": { "raw": "{{baseUrl}}/users/{{userId}}", "host": ["{{baseUrl}}"], "path": ["users", "{{userId}}"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/{{userId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "{{userId}}"]
+            }
           }
         }
       ]
@@ -264,7 +306,11 @@
               { "key": "Authorization", "value": "Bearer {{vendorToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/vendors", "host": ["{{baseUrl}}"], "path": ["vendors"] },
+            "url": {
+              "raw": "{{baseUrl}}/vendors",
+              "host": ["{{baseUrl}}"],
+              "path": ["vendors"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"farmName\": \"Green Roots Farm\",\n  \"farmLocation\": \"Dhaka, Mirpur-12\"\n}"
@@ -284,7 +330,11 @@
                 { "key": "page", "value": "1" },
                 { "key": "limit", "value": "10" },
                 { "key": "searchTerm", "value": "", "disabled": true },
-                { "key": "certificationStatus", "value": "APPROVED", "disabled": true },
+                {
+                  "key": "certificationStatus",
+                  "value": "APPROVED",
+                  "disabled": true
+                },
                 { "key": "farmLocation", "value": "", "disabled": true }
               ]
             }
@@ -295,15 +345,25 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": { "raw": "{{baseUrl}}/vendors/{{vendorProfileId}}", "host": ["{{baseUrl}}"], "path": ["vendors", "{{vendorProfileId}}"] }
+            "url": {
+              "raw": "{{baseUrl}}/vendors/{{vendorProfileId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["vendors", "{{vendorProfileId}}"]
+            }
           }
         },
         {
           "name": "Get My Vendor Profile",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{vendorToken}}" }],
-            "url": { "raw": "{{baseUrl}}/vendors/my/profile", "host": ["{{baseUrl}}"], "path": ["vendors", "my", "profile"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{vendorToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/vendors/my/profile",
+              "host": ["{{baseUrl}}"],
+              "path": ["vendors", "my", "profile"]
+            }
           }
         },
         {
@@ -314,7 +374,11 @@
               { "key": "Authorization", "value": "Bearer {{vendorToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/vendors/{{vendorProfileId}}", "host": ["{{baseUrl}}"], "path": ["vendors", "{{vendorProfileId}}"] },
+            "url": {
+              "raw": "{{baseUrl}}/vendors/{{vendorProfileId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["vendors", "{{vendorProfileId}}"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"farmName\": \"Green Roots Farm Updated\",\n  \"farmLocation\": \"Dhaka, Uttara Sector 7\"\n}"
@@ -325,16 +389,28 @@
           "name": "Approve Vendor (Admin)",
           "request": {
             "method": "PATCH",
-            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
-            "url": { "raw": "{{baseUrl}}/vendors/{{vendorProfileId}}/approve", "host": ["{{baseUrl}}"], "path": ["vendors", "{{vendorProfileId}}", "approve"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/vendors/{{vendorProfileId}}/approve",
+              "host": ["{{baseUrl}}"],
+              "path": ["vendors", "{{vendorProfileId}}", "approve"]
+            }
           }
         },
         {
           "name": "Delete Vendor Profile (Admin)",
           "request": {
             "method": "DELETE",
-            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
-            "url": { "raw": "{{baseUrl}}/vendors/{{vendorProfileId}}", "host": ["{{baseUrl}}"], "path": ["vendors", "{{vendorProfileId}}"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/vendors/{{vendorProfileId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["vendors", "{{vendorProfileId}}"]
+            }
           }
         }
       ]
@@ -364,7 +440,11 @@
               { "key": "Authorization", "value": "Bearer {{vendorToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/produce", "host": ["{{baseUrl}}"], "path": ["produce"] },
+            "url": {
+              "raw": "{{baseUrl}}/produce",
+              "host": ["{{baseUrl}}"],
+              "path": ["produce"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"Organic Tomatoes\",\n  \"description\": \"Fresh, pesticide-free tomatoes grown in Dhaka\",\n  \"price\": 120.00,\n  \"category\": \"Vegetables\",\n  \"certificationStatus\": \"ORGANIC\",\n  \"availableQuantity\": 50\n}"
@@ -387,7 +467,11 @@
                 { "key": "sortOrder", "value": "asc" },
                 { "key": "searchTerm", "value": "", "disabled": true },
                 { "key": "category", "value": "Vegetables", "disabled": true },
-                { "key": "certificationStatus", "value": "ORGANIC", "disabled": true }
+                {
+                  "key": "certificationStatus",
+                  "value": "ORGANIC",
+                  "disabled": true
+                }
               ]
             }
           }
@@ -397,14 +481,20 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": { "raw": "{{baseUrl}}/produce/{{produceId}}", "host": ["{{baseUrl}}"], "path": ["produce", "{{produceId}}"] }
+            "url": {
+              "raw": "{{baseUrl}}/produce/{{produceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["produce", "{{produceId}}"]
+            }
           }
         },
         {
           "name": "Get My Produce Listings",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{vendorToken}}" }],
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{vendorToken}}" }
+            ],
             "url": {
               "raw": "{{baseUrl}}/produce/my/listings?page=1&limit=10",
               "host": ["{{baseUrl}}"],
@@ -424,7 +514,11 @@
               { "key": "Authorization", "value": "Bearer {{vendorToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/produce/{{produceId}}", "host": ["{{baseUrl}}"], "path": ["produce", "{{produceId}}"] },
+            "url": {
+              "raw": "{{baseUrl}}/produce/{{produceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["produce", "{{produceId}}"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"price\": 150.00,\n  \"availableQuantity\": 80,\n  \"description\": \"Updated description - Extra fresh batch!\"\n}"
@@ -435,8 +529,14 @@
           "name": "Delete Produce",
           "request": {
             "method": "DELETE",
-            "header": [{ "key": "Authorization", "value": "Bearer {{vendorToken}}" }],
-            "url": { "raw": "{{baseUrl}}/produce/{{produceId}}", "host": ["{{baseUrl}}"], "path": ["produce", "{{produceId}}"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{vendorToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/produce/{{produceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["produce", "{{produceId}}"]
+            }
           }
         }
       ]
@@ -466,7 +566,11 @@
               { "key": "Authorization", "value": "Bearer {{vendorToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/rental-spaces", "host": ["{{baseUrl}}"], "path": ["rental-spaces"] },
+            "url": {
+              "raw": "{{baseUrl}}/rental-spaces",
+              "host": ["{{baseUrl}}"],
+              "path": ["rental-spaces"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"location\": \"Dhaka, Uttara Sector 7\",\n  \"size\": \"20 sqft\",\n  \"price\": 1500.00,\n  \"availability\": true\n}"
@@ -498,14 +602,20 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": { "raw": "{{baseUrl}}/rental-spaces/{{rentalSpaceId}}", "host": ["{{baseUrl}}"], "path": ["rental-spaces", "{{rentalSpaceId}}"] }
+            "url": {
+              "raw": "{{baseUrl}}/rental-spaces/{{rentalSpaceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["rental-spaces", "{{rentalSpaceId}}"]
+            }
           }
         },
         {
           "name": "Get My Rental Spaces",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{vendorToken}}" }],
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{vendorToken}}" }
+            ],
             "url": {
               "raw": "{{baseUrl}}/rental-spaces/my/spaces?page=1&limit=10",
               "host": ["{{baseUrl}}"],
@@ -525,7 +635,11 @@
               { "key": "Authorization", "value": "Bearer {{vendorToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/rental-spaces/{{rentalSpaceId}}", "host": ["{{baseUrl}}"], "path": ["rental-spaces", "{{rentalSpaceId}}"] },
+            "url": {
+              "raw": "{{baseUrl}}/rental-spaces/{{rentalSpaceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["rental-spaces", "{{rentalSpaceId}}"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"price\": 1800.00,\n  \"availability\": false\n}"
@@ -536,8 +650,14 @@
           "name": "Delete Rental Space",
           "request": {
             "method": "DELETE",
-            "header": [{ "key": "Authorization", "value": "Bearer {{vendorToken}}" }],
-            "url": { "raw": "{{baseUrl}}/rental-spaces/{{rentalSpaceId}}", "host": ["{{baseUrl}}"], "path": ["rental-spaces", "{{rentalSpaceId}}"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{vendorToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/rental-spaces/{{rentalSpaceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["rental-spaces", "{{rentalSpaceId}}"]
+            }
           }
         }
       ]
@@ -567,7 +687,11 @@
               { "key": "Authorization", "value": "Bearer {{customerToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/orders", "host": ["{{baseUrl}}"], "path": ["orders"] },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"produceId\": \"{{produceId}}\",\n  \"quantity\": 2\n}"
@@ -578,7 +702,9 @@
           "name": "Get All Orders (Admin)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
             "url": {
               "raw": "{{baseUrl}}/orders?page=1&limit=10&sortBy=orderDate&sortOrder=desc",
               "host": ["{{baseUrl}}"],
@@ -599,7 +725,9 @@
           "name": "Get My Orders (Customer)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{customerToken}}" }],
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{customerToken}}" }
+            ],
             "url": {
               "raw": "{{baseUrl}}/orders/my/orders?page=1&limit=10",
               "host": ["{{baseUrl}}"],
@@ -616,7 +744,9 @@
           "name": "Get Vendor Orders (Vendor)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{vendorToken}}" }],
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{vendorToken}}" }
+            ],
             "url": {
               "raw": "{{baseUrl}}/orders/vendor/orders?page=1&limit=10",
               "host": ["{{baseUrl}}"],
@@ -633,8 +763,14 @@
           "name": "Get Order By ID",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{customerToken}}" }],
-            "url": { "raw": "{{baseUrl}}/orders/{{orderId}}", "host": ["{{baseUrl}}"], "path": ["orders", "{{orderId}}"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{customerToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders/{{orderId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "{{orderId}}"]
+            }
           }
         },
         {
@@ -645,7 +781,11 @@
               { "key": "Authorization", "value": "Bearer {{vendorToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/orders/{{orderId}}/status", "host": ["{{baseUrl}}"], "path": ["orders", "{{orderId}}", "status"] },
+            "url": {
+              "raw": "{{baseUrl}}/orders/{{orderId}}/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "{{orderId}}", "status"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"status\": \"PROCESSING\"\n}"
@@ -660,7 +800,11 @@
               { "key": "Authorization", "value": "Bearer {{adminToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/orders/{{orderId}}/status", "host": ["{{baseUrl}}"], "path": ["orders", "{{orderId}}", "status"] },
+            "url": {
+              "raw": "{{baseUrl}}/orders/{{orderId}}/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "{{orderId}}", "status"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"status\": \"DELIVERED\"\n}"
@@ -671,8 +815,14 @@
           "name": "Cancel Order (Customer)",
           "request": {
             "method": "PATCH",
-            "header": [{ "key": "Authorization", "value": "Bearer {{customerToken}}" }],
-            "url": { "raw": "{{baseUrl}}/orders/{{orderId}}/cancel", "host": ["{{baseUrl}}"], "path": ["orders", "{{orderId}}", "cancel"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{customerToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders/{{orderId}}/cancel",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "{{orderId}}", "cancel"]
+            }
           }
         }
       ]
@@ -702,7 +852,11 @@
               { "key": "Authorization", "value": "Bearer {{customerToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/community", "host": ["{{baseUrl}}"], "path": ["community"] },
+            "url": {
+              "raw": "{{baseUrl}}/community",
+              "host": ["{{baseUrl}}"],
+              "path": ["community"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"postContent\": \"Best time to plant tomatoes in Dhaka is March-April. Use compost instead of chemical fertilizer for best results!\"\n}"
@@ -733,14 +887,20 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": { "raw": "{{baseUrl}}/community/{{postId}}", "host": ["{{baseUrl}}"], "path": ["community", "{{postId}}"] }
+            "url": {
+              "raw": "{{baseUrl}}/community/{{postId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["community", "{{postId}}"]
+            }
           }
         },
         {
           "name": "Get My Posts",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{customerToken}}" }],
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{customerToken}}" }
+            ],
             "url": {
               "raw": "{{baseUrl}}/community/my/posts?page=1&limit=10",
               "host": ["{{baseUrl}}"],
@@ -760,7 +920,11 @@
               { "key": "Authorization", "value": "Bearer {{customerToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/community/{{postId}}", "host": ["{{baseUrl}}"], "path": ["community", "{{postId}}"] },
+            "url": {
+              "raw": "{{baseUrl}}/community/{{postId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["community", "{{postId}}"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"postContent\": \"Updated: Best time to plant tomatoes is March-April. Also try adding vermicompost for extra yield!\"\n}"
@@ -771,8 +935,14 @@
           "name": "Delete Post",
           "request": {
             "method": "DELETE",
-            "header": [{ "key": "Authorization", "value": "Bearer {{customerToken}}" }],
-            "url": { "raw": "{{baseUrl}}/community/{{postId}}", "host": ["{{baseUrl}}"], "path": ["community", "{{postId}}"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{customerToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/community/{{postId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["community", "{{postId}}"]
+            }
           }
         }
       ]
@@ -802,7 +972,11 @@
               { "key": "Authorization", "value": "Bearer {{vendorToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/certifications", "host": ["{{baseUrl}}"], "path": ["certifications"] },
+            "url": {
+              "raw": "{{baseUrl}}/certifications",
+              "host": ["{{baseUrl}}"],
+              "path": ["certifications"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"certifyingAgency\": \"Bangladesh Organic Certification Agency\",\n  \"certificationDate\": \"2024-06-01\"\n}"
@@ -813,7 +987,9 @@
           "name": "Get All Certifications (Admin)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
             "url": {
               "raw": "{{baseUrl}}/certifications?page=1&limit=10&sortBy=certificationDate&sortOrder=desc",
               "host": ["{{baseUrl}}"],
@@ -834,7 +1010,9 @@
           "name": "Get My Certifications (Vendor)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{vendorToken}}" }],
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{vendorToken}}" }
+            ],
             "url": {
               "raw": "{{baseUrl}}/certifications/my/certs?page=1&limit=10",
               "host": ["{{baseUrl}}"],
@@ -850,8 +1028,14 @@
           "name": "Get Certification By ID",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{vendorToken}}" }],
-            "url": { "raw": "{{baseUrl}}/certifications/{{certId}}", "host": ["{{baseUrl}}"], "path": ["certifications", "{{certId}}"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{vendorToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/certifications/{{certId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["certifications", "{{certId}}"]
+            }
           }
         },
         {
@@ -862,7 +1046,11 @@
               { "key": "Authorization", "value": "Bearer {{vendorToken}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "{{baseUrl}}/certifications/{{certId}}", "host": ["{{baseUrl}}"], "path": ["certifications", "{{certId}}"] },
+            "url": {
+              "raw": "{{baseUrl}}/certifications/{{certId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["certifications", "{{certId}}"]
+            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"certifyingAgency\": \"Global Organic Alliance\",\n  \"certificationDate\": \"2025-01-15\"\n}"
@@ -873,8 +1061,14 @@
           "name": "Delete Certification",
           "request": {
             "method": "DELETE",
-            "header": [{ "key": "Authorization", "value": "Bearer {{vendorToken}}" }],
-            "url": { "raw": "{{baseUrl}}/certifications/{{certId}}", "host": ["{{baseUrl}}"], "path": ["certifications", "{{certId}}"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{vendorToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/certifications/{{certId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["certifications", "{{certId}}"]
+            }
           }
         }
       ]
